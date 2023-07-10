@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Deep Learning TB Prediction</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='images/nmcclover.png') }}" type="image/x-icon" />
+  <!-- Bootstrap CSS -->
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" type="text/css" rel="stylesheet">
+  <!-- Animate CSS -->
+  <link href="{{ url_for('static', filename='vendors/animate/animate.css') }}" type="text/css" rel="stylesheet">
+  <!-- Icon CSS-->
+  <link rel="stylesheet" type="text/css"
+    href="{{ url_for('static', filename='vendors/font-awesome/css/font-awesome.min.css') }}">
+  <!-- Camera Slider -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendors/camera-slider/camera.css') }}">
+  <!-- Owlcarousel CSS-->
+  <link rel="stylesheet" type="text/css"
+    href="{{ url_for('static', filename='vendors/owl_carousel/owl.carousel.css') }}" media="all">
+
+  <!--Theme Styles CSS-->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" media="all" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+  <!--===============================================================================================-->
+
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div class="preloader"></div>
+
+  <!-- Header_Area -->
+  <nav class="navbar navbar-default header_aera" id="main_navbar">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="col-md-2 p0">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#min_navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='images/nmclogo.png') }}"
+              style="margin-top: -20px;" alt=""></a>
+        </div>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="col-md-10 p0">
+        <div class="collapse navbar-collapse" id="min_navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="nav_searchFrom"><i class="fa fa-medkit"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+    </div><!-- /.container -->
+  </nav>
+  <!-- End Header_Area -->
+
+
+  <!-- Our Features Area -->
+  <section class="our_feature_area">
+    <div class="container">
+
+      <div class="feature_row row">
+
+        <div class="limiter">
+          <div class="tittle wow fadeInUp">
+            <h2 class="login100-form-title p-b-26">Artificial Intelligence in Healthcare</h2>
+          </div>
+          <div class="container-login100">
+            <div class="wrap-login100">
+
+              <form class="login100-form" action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+
+                <span class="login100-form-title p-b-26">
+                  Tuberculosis Prediction
+                </span>
+
+                <div id="wrapper">
+                  <input type="file" name="image" id="image-selector" accept="image/*" onchange="readURL(this);" />
+                  <img id="blah" src="{{ url_for('static', filename='images/placeholder.png') }}"
+                    alt="{{ url_for('static', filename='images/placeholder.png') }}" />
+                </div>
+
+                <div class="container-login100-form-btn">
+                  <div class="wrap-login100-form-btn">
+                    <div class="login100-form-bgbtn"></div>
+                    <button class="login100-form-btn" id="predict-button">
+                      Predict
+                    </button>
+                  </div>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div id="dropDownSelect1"></div>
+      </div>
+    </div>
+  </section>
+  <!-- End Our Features Area -->
+
+  <!-- Footer Area -->
+  <footer class="footer_area">
+    <div class="copyright_area">
+      Copyright NMC Healthcare 2019. All Rights Reserved. MOH Application No - CE22299-03/03/2020.</a>
+    </div>
+  </footer>
+  <!-- End Footer Area -->
+
+  <!-- jQuery JS -->
+  <script src="{{ url_for('static', filename='js/jquery-1.12.0.min.js') }}"></script>
+  <!-- Bootstrap JS -->
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <!-- Animate JS -->
+  <script src="{{ url_for('static', filename='vendors/animate/wow.min.js') }}"></script>
+  <!-- Camera Slider -->
+  <script src="{{ url_for('static', filename='vendors/camera-slider/jquery.easing.1.3.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/camera-slider/camera.min.js') }}"></script>
+  <!-- Isotope JS -->
+  <script src="{{ url_for('static', filename='vendors/isotope/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/isotope/isotope.pkgd.min.js') }}"></script>
+  <!-- Progress JS -->
+  <script src="{{ url_for('static', filename='vendors/Counter-Up/jquery.counterup.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/Counter-Up/waypoints.min.js') }}"></script>
+  <!-- Owlcarousel JS -->
+  <script src="{{ url_for('static', filename='vendors/owl_carousel/owl.carousel.min.js') }}"></script>
+  <!-- Stellar JS -->
+  <script src="{{ url_for('static', filename='vendors/stellar/jquery.stellar.js') }}"></script>
+  <!-- Theme JS -->
+  <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+
+  <style>
+    img {
+      width: 100%;
+      max-width: 100%;
+      max-height: auto;
+      border: 8px solid #ffffff;
+      border-radius: 15px;
+      display: inline-block;
+    }
+
+    input[type="file"] {
+      background: #3085C5;
+      border: 8px solid #ffffff;
+      padding: 1em .25em;
+      width: 100%;
+      color: #999;
+      border-radius: 15px;
+    }
+  </style>
+
+  <!-- Script to display image -->
+  <script type="text/javascript">
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $("#blah").attr("src", e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  </script>
+
+
+</body>
+
+</html>
