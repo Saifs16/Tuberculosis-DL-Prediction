@@ -1,4 +1,4 @@
-# Deep Learning TB Prediction
+# Deep-Learning TB Prediction
 
 ## Commands
 
