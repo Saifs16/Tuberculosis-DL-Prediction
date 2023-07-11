@@ -7,4 +7,4 @@ gevent==22.10.2
 requests==2.31.0
 Werkzeug==2.2.3
 h5py==2.10.0
-opencv-python==4.5.5.64
+opencv-python==4.8.0.74
