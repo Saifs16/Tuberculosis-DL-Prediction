@@ -17,13 +17,13 @@ source .env/bin/activate
 3. Install the requirements
 
 ```
-pip install -r requirements.txt
+pip install -r requirements.txt --no-cache-dir
 ```
 
 4. Run the app
 
 ```
-python server.py
+python app.py
 ```
 
 ---- With WSGI (Production)
