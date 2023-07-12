@@ -15,9 +15,11 @@ app = flask.Flask(__name__, template_folder='static')
 model = None
 response = None
 
-def load_our_model():
-    global model
-    model = tf.keras.models.load_model('tb-model.h5')
+
+print("-----LOADING MODEL -------")
+model = tf.keras.models.load_model('tb-model.h5')
+print("-----MODEL LOADED -------")
+
 
 # Preprocessing the image
 def prepare_image(image, target_size):
@@ -84,4 +86,6 @@ if __name__ == "__main__":
     print(("* Loading Keras model and Flask starting server..."
            "please wait until server has fully started"))
     load_our_model()
-    app.run(debug=True)
+    # Run the app
+    app.debug = True
+    app.run(host='0.0.0.0', port=5000)

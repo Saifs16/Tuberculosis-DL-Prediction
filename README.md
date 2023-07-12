@@ -25,3 +25,12 @@ pip install -r requirements.txt
 ```
 python server.py
 ```
+
+---- With WSGI (Production)
+
+
+- To start the server: `gunicorn -w 1 -b 0.0.0.0:5000 --timeout 600 wsgi:app`
+
+- To start the server in background: `gunicorn -w 1 -b 0.0.0.0:5000 --timeout 600 wsgi:app --daemon`
+
+- To stop the guincorn server: `ps ax|grep gunicorn` & `kill -9 <pid number>`
